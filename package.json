@@ -1,0 +1,24 @@
+{
+  "name": "basic-board",
+  "version": "1.0.0",
+  "description": "Node.js와 Express 프레임워크를 사용해 기본적인 게시판을 만들어 보기",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dode777/basic-board.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dode777/basic-board/issues"
+  },
+  "homepage": "https://github.com/dode777/basic-board#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
