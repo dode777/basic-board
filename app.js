@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('./db');
 
 const PORT = process.env.PORT || 3000;
 

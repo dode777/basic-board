@@ -4,7 +4,7 @@ require('dotenv').config();
 // 환경 변수 사용
 
 mongoose.connect(process.env.MONGO_URL, {
-  // MongoDB 연결 - 환경 변수 사용 설명 참고
+  // MongoDB 연결
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -21,6 +21,6 @@ const handleError = (err) => {
 };
 
 db.once('open', handleConnection);
+// DB 정상 연결 시 handleConnection 함수 실행
 db.on('error', handleError);
-
-module.exports = db;
+// DB 에러 발생 시 handleError 함수 실행
