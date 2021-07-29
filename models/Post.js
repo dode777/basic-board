@@ -7,9 +7,14 @@ const postSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    description: {
+    contents: {
       type: String,
       required: true,
+    },
+    writer: {
+      type: String,
+      required: true,
+      trim: true,
     },
   },
   {
