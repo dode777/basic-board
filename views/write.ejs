@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic-board</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>게시글 작성</h1>
+    <form action="/board/post" method="post">
+      <table border="1">
+        <tr>
+          <td>작성자</td>
+          <td><input type="text" name="writer" id="writer" required /></td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td><input type="text" name="title" id="title" required /></td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td>
+            <textarea
+              name="contents"
+              id="contents"
+              cols="30"
+              rows="10"
+              required
+            ></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <button type="submit">글쓰기</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

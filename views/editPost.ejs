@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic-board</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>수정하기</h1>
+    <form name="board" method="POST" action="/board/post/edit/<%=post._id%>">
+      <p><%=post.writer%></p>
+      <input name="title" value="<%=post.title%>" />
+      <textarea name="contents"><%=post.contents%></textarea>
+      <button type="submit">완료</button>
+    </form>
+  </body>
+</html>

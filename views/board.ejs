@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic-board</title>
+    <link rel='stylesheet' href='/css/style.css'/>
+</head>
+<body>
+<h1>게시판</h1>
+<a href="/board/post">글쓰기</a>
+<table border="1">
+    <tr>
+        <td>작성자</td>
+        <td>제목</td>
+        <td>내용</td>
+        <td>등록일</td>
+        <td>수정일</td>
+    </tr>
+    <%
+    for(var i=0; i<posts.length; i++)
+    {
+        let data = posts[i];
+    %>
+    <tr>
+        <td><%=data.writer%></td>
+        <td><a href="/board/post/<%=data._id%>"><%=data.title%></a></td>
+        <td><%=data.contents%></td>
+        <td><%=data.createdAt%></td>
+        <td><%=data.updatedAt%></td>
+    </tr>
+    <%}%>
+</table>
+</body>
+</html>

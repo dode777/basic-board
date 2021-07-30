@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic-board</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>게시판</h1>
+    <table border="1">
+      <tr>
+        <td><%=post.writer%></td>
+        <td><%=post.title%></td>
+        <td><%=post.contents%></td>
+        <td><%=post.createdAt%></td>
+        <td><%=post.updatedAt%></td>
+      </tr>
+    </table>
+    <button><a href="/board/post/edit/<%=post._id%>">수정하기</a></button>
+  </body>
+</html>
