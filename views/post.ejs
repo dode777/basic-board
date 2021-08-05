@@ -2,18 +2,64 @@
 <html>
   <head>
     <title>Basic-board</title>
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/status.css">
   </head>
   <body>
-    <h1>게시판</h1>
-    <table border="1">
-      <tr>
-        <td><%=post.writer%></td>
-        <td><%=post.title%></td>
-        <td><%=post.contents%></td>
-        <td><%=post.createdAt%></td>
-        <td><%=post.updatedAt%></td>
-      </tr>
-    </table>
-    <button><a href="/board/post/edit/<%=post._id%>">수정하기</a></button>
+    <p><a href="/board">홈으로</a></p>
+    <h1><%=post.title%></h1>
+    
+    <p><%=post.writer%></p>
+    <p><%=post.contents%></p>
+    <p><%=post.createdAt%></p>
+
+    <button><a href="/board/post/edit/<%=post._id%>">게시글 수정하기</a></button>
+
+    <hr>
+
+    <h1>댓글</h1>
+    <div class="comment-container">
+      <%
+      for(var i=0; i<comments.length; i++)
+      {
+        let comment = comments[i];
+      %>
+        <div class="comment">
+          <p>작성자: <%=comment.writer%></p>
+          <p>내용: <%=comment.comment%></p>
+          <p>작성일: <%=comment.createdAt%></p>
+        </div>
+        <div class="comment-edit--button">
+          <button class="comment-edit--edit">edit</button>
+          <button class="comment-edit--delete">delete</button>
+        </div>
+
+        <div class="comment-edit">
+          <button class="comment-edit--close">X</button>
+          <form action="/comment/<%=post._id%>/<%=comment._id%>/edit" method="POST">
+            <input name="password" type="number" pattern="[0-9]*" minlength="4" maxlength="4" placeholder="숫자4자리 비밀번호" />
+            <textarea name="comment" cols="30" rows="5"><%=comment.comment%></textarea>
+            <button type="submit">수정</button>
+          </form>
+        </div>
+        <div class="comment-delete">
+          <button class="comment-edit--close">X</button>
+          <form action="/comment/<%=post._id%>/<%=comment._id%>/delete" method="POST">
+            <input name="password" type="number" pattern="[0-9]*" minlength="4" maxlength="4" placeholder="숫자4자리 비밀번호" />
+            <button>삭제</button>
+          </form>
+        </div>
+        <hr>
+      <%}%>
+    </div>
+
+    <form action="/comment/<%=post._id%>" method="post">
+      <div class="input-container"></div>
+        <input name="writer" type="text" placeholder="작성자" />
+        <input name="password" type="number" pattern="[0-9]*" minlength="4" maxlength="4" placeholder="숫자4자리 비밀번호" />
+      <textarea name="comment" cols="30" rows="5"></textarea>
+      <button type="submit">작성</button>
+    </form>
   </body>
+  <script src="/js/post.js"></script>
 </html>

@@ -1,3 +1,4 @@
+const Comment = require('../models/Comment');
 const Post = require('../models/Post');
 
 // 모든 게시글 조회
@@ -51,8 +52,9 @@ const getOnePost = async (req, res) => {
     const {
       params: { postId },
     } = req;
+    const comments = await Comment.find({ post: postId });
     const post = await Post.findOne({ _id: postId });
-    res.status(200).render('post', { post });
+    res.status(200).render('post', { post, comments });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
